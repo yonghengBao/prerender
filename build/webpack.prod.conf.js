@@ -38,6 +38,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': env
     }),
+    new SkeletonPlugin({}),
     new PrerenderSpaPlugin({
       //   编译后html需要存放的路径
       staticDir: path.join(__dirname, '../dist'),
@@ -88,7 +89,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
-    new SkeletonPlugin({}),
     // keep module.id stable when vendor modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
